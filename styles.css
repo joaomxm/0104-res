@@ -1,5 +1,5 @@
 body{
-
+background-color: gainsboro;
 margin: 0;
 
 }
@@ -10,7 +10,36 @@ margin: 0;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, minmax(30px, auto));
     grid-template-areas:
-    "header header header header header";
+    "header header header header header"
+    "sidebar sidebar sidebar sidebar sidebar "
+    "main main main main main"
+    
+}
+
+h3{
+    color: red;
+   
+}
+
+.sidebar{
+    padding: 30px 0;
+    grid-area: sidebar;
+    background-color: white;
+}
+.sidebar nav {
+
+
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+
+
+}
+
+.sidebar nav a {
+
+color: black;
+text-decoration: none;
 }
 
 header{
@@ -45,6 +74,8 @@ header nav a {
     width: 30px;
     
 }
+
+
 .traco{
     height: 3px;
     width: 100%;
@@ -54,23 +85,59 @@ header nav a {
 }
 
 
+main{
+
+    grid-area: main;
+}
+
+
 
 
 /* Media Query */
+/* Breakpoint para tablet */
 
-@media(min-width: 900px){
-
-
+@media(min-width: 768px){
     header nav{
     display: block;
 
-
-    }
-
-    
+}
     .menu-hamburguer{
 
     display: none;
     }
+    
+ }
 
+/* Breakpooint para notebooks pequenos */
+@media(min-width: 992px){
+
+.grid{
+    grid-template-areas:
+    "header header header header header"
+    "main main main . sidebar"
+    "main main main . sidebar"
+
+    
+}
+.sidebar{
+
+    border-radius:  25px;
+    box-shadow: 1px 1px 15px 8px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+
+}
+.sidebar nav{
+
+    flex-direction: column;
+    justify-content: center;
+}
+}
+
+/* Breakpoint para desktop e not grande */
+@media(min-width: 1200px){
+
+    main{
+        margin: auto;
+        max-width: 1200px;
+    }
 }
